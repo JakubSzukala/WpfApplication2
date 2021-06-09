@@ -101,7 +101,98 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding ledButtons}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="8" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <!-- Binding path sets or gets path to the source property -->
+                                    <!-- This allows us to bind into dynamically generated Command inside ledbuttoncommand implicitly -->
+                                    <Button Content="Some button"
+                                            Height="auto"
+                                            Command="{Binding Path=.}">
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                </Grid>
+                <Grid>
+                    <!-- We set grid resource for binding to viewmodels (a lil bit of a mess)-->
+                    <Grid.Resources>
+                        <vms:ColorSetting x:Key="ColorDataSource"/>
+                    </Grid.Resources>
+                    <!-- And here we set the context corresponding to this resource -->
+                    <Grid.DataContext>
+                        <Binding Source="{StaticResource ColorDataSource}"/>
+                    </Grid.DataContext>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Canvas Grid.Column="2" Grid.Row="1">
+                        <Canvas.Background>
+                            <RadialGradientBrush 
+                                GradientOrigin="0.5,0.5" 
+                                Center="0.5,0.5" 
+                                RadiusX="0.5" 
+                                RadiusY="0.5">
+                                <RadialGradientBrush.GradientStops>
+                                    <GradientStop Color="#88ff00" Offset="1.0" />
+                                </RadialGradientBrush.GradientStops>
+                            </RadialGradientBrush>
+                        </Canvas.Background>
+                    </Canvas>
+                    <Slider 
+                            Grid.Row="2"
+                            Grid.Column="0" 
+                            Width="100" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Left" 
+                            Value="{Binding inputR}" 
+                            Minimum="0" 
+                            Maximum="200" 
+                            SmallChange="1"
+                            LargeChange="10"
+                            TickPlacement="BottomRight" 
+                            TickFrequency="10"/>
+                    <Slider 
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="100" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Left" 
+                            Value="{Binding inputG}" 
+                            Minimum="0" 
+                            Maximum="200" 
+                            SmallChange="1"
+                            LargeChange="10"
+                            TickPlacement="BottomRight" 
+                            TickFrequency="10"/>
+                    <Slider 
+                            Grid.Row="2"
+                            Grid.Column="2"                                          
+                            Width="100" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Left" 
+                            Value="{Binding inputB}" 
+                            Minimum="0" 
+                            Maximum="200" 
+                            SmallChange="1"
+                            LargeChange="10"
+                            TickPlacement="BottomRight" 
+                            TickFrequency="10"/>
                 </Grid>
             </Grid>
         </TabItem>

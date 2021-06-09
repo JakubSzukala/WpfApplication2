@@ -26,13 +26,6 @@ namespace WpfApplication2
         {
             InitializeComponent();
             // how to assign commands to buttons programatically
-            //Button a = new Button();
-            //a.Command = new mButtonCommand(somefunction);
-            //ButtonMatrixGrid.Children.Add(a);
-        }
-        void somefunction()
-        {
-            Debug.WriteLine("sdf");
         }
     }
 }

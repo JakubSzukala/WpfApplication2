@@ -11,6 +11,11 @@ namespace WpfApplication2.ViewModels
         private int _posX;
         private int _posY;
         private bool _isEnabled;
+        
+        // colors
+        private int r;
+        private int g;
+        private int b;
 
         public LedButtonCommand(Action handler, int posX, int posY)
         {
