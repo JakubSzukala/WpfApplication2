@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication2.ViewModels;
 
 namespace WpfApplication2
 {
@@ -23,7 +25,7 @@ namespace WpfApplication2
         public MainWindow()
         {
             InitializeComponent();
-            
+            // how to assign commands to buttons programatically
         }
     }
 }
